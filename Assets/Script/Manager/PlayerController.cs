@@ -5,20 +5,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
+    public GameObject Player;
 
     private Animator mPlayer_Animator;
     private Rigidbody2D mPlayer_Rigidbody;
     private float Player_Speed = 5f;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         PlayerController.Instance = this;
 
-        mPlayer_Animator = this.GetComponent<Animator>();
-        mPlayer_Rigidbody = this.GetComponent<Rigidbody2D>();
+        mPlayer_Animator = Player.GetComponent<Animator>();
+        mPlayer_Rigidbody = Player.GetComponent<Rigidbody2D>();
+        DontDestroyOnLoad(this.gameObject);
     }
-
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -26,10 +28,29 @@ public class PlayerController : MonoBehaviour
         KeyEvent();
 #endif
     }
-
+    */
     public void btnTest(int number)
     {
         Debug.Log(number);
+    }
+
+    public void setPlayerAnimation(string mode)
+    {
+        switch (mode)
+        {
+            case "idle":
+                {
+                    Debug.Log("idle");
+                    mPlayer_Animator.SetBool("isJump", false);
+                    break;
+                }
+            case "jump":
+                {
+                    Debug.Log("jump");
+                    mPlayer_Animator.SetBool("isJump", true);
+                    break;
+                }
+        }
     }
 
     public void KeyTouchEvent(int number)
@@ -45,24 +66,24 @@ public class PlayerController : MonoBehaviour
                 }
             case 1:
                 {
-                    this.transform.localPosition -= new Vector3(0, Player_Speed * Time.deltaTime);
+                    Player.transform.localPosition -= new Vector3(0, Player_Speed * Time.deltaTime);
                     mPlayer_Animator.SetBool("isJump", true);
                     break;
                 }
             case 2:
                 {
-                    this.transform.localPosition -= new Vector3(Player_Speed * Time.deltaTime, 0);
+                    Player.transform.localPosition -= new Vector3(Player_Speed * Time.deltaTime, 0);
                     mPlayer_Animator.SetBool("isJump", true);
 
-                    this.transform.eulerAngles = new Vector3(0, 180);
+                    Player.transform.eulerAngles = new Vector3(0, 180);
                     break;
                 }
             case 3:
                 {
-                    this.transform.localPosition += new Vector3(Player_Speed * Time.deltaTime, 0);
+                    Player.transform.localPosition += new Vector3(Player_Speed * Time.deltaTime, 0);
                     mPlayer_Animator.SetBool("isJump", true);
 
-                    this.transform.eulerAngles = new Vector3(0, 0);
+                    Player.transform.eulerAngles = new Vector3(0, 0);
                     break;
                 }
         }
@@ -83,28 +104,73 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            this.transform.localPosition -= new Vector3(0, Player_Speed * Time.deltaTime);
+            Player.transform.localPosition -= new Vector3(0, Player_Speed * Time.deltaTime);
             mPlayer_Animator.SetBool("isJump", true);
 
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            this.transform.localPosition -= new Vector3(Player_Speed * Time.deltaTime, 0);
+            Player.transform.localPosition -= new Vector3(Player_Speed * Time.deltaTime, 0);
             mPlayer_Animator.SetBool("isJump", true);
 
-            this.transform.eulerAngles = new Vector3(0, 180);
+            Player.transform.eulerAngles = new Vector3(0, 180);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            this.transform.localPosition += new Vector3(Player_Speed * Time.deltaTime, 0);
+            Player.transform.localPosition += new Vector3(Player_Speed * Time.deltaTime, 0);
             mPlayer_Animator.SetBool("isJump", true);
 
-            this.transform.eulerAngles = new Vector3(0, 0);
+            Player.transform.eulerAngles = new Vector3(0, 0);
         }
 
         if (!Input.anyKey)
         {
             mPlayer_Animator.SetBool("isJump", false);
+        }
+    }
+    /*
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("1"+ collision.name);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Debug.Log("2" + collision.name);
+    }
+    */
+
+    private bool IsCollision = false;
+    private int startBtnCount = 0;
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "StartBtn")
+        {
+            IsCollision = true;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (IsCollision)
+        {
+            if(collision.gameObject.name == "StartBtn")
+            {
+                startBtnCount++;
+                IsCollision = false;
+                if (startBtnCount > 5)
+                {
+                    SceneController.Instance.ChangeScene(1);
+                }
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (IsCollision)
+        {
+            IsCollision = false;
         }
     }
 }
