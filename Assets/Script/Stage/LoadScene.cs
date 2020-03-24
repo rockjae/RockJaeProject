@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage1 : MonoBehaviour
+public class LoadScene : MonoBehaviour
 {
+    public static LoadScene Instance;
     private Transform Player;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
+    {
+        LoadScene.Instance = this;
+    }
+
+    private void Start()
     {
         Player = PlayerController.Instance.Player.transform;
         Player.transform.position = new Vector3(-2, 4);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void NextScene()
     {
-        
+        SceneController.Instance.ChangeScene(1);
     }
 }

@@ -14,6 +14,6 @@ public class SceneController : MonoBehaviour
 
     public void ChangeScene(int index)
     {
-        SceneManager.LoadScene("Stage"+ index);
+        SceneManager.LoadScene("Stage" + index);
     }
 }

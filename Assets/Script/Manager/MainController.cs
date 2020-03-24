@@ -5,22 +5,18 @@ using UnityEngine;
 public class MainController : MonoBehaviour
 {
     public static MainController Instance;
-    //public GameObject Player;
+    private GameObject Player;
+
+    private int stageNumber = 0;
 
     private void Awake()
     {
         MainController.Instance = this;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
-    }
-
-    public void StageOne()
-    {
-        
+        Player = PlayerController.Instance.Player;
     }
 }

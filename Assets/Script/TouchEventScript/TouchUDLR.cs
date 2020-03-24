@@ -15,7 +15,7 @@ public class TouchUDLR : MonoBehaviour
     private void Start()
     {
         Player = PlayerController.Instance.Player.transform;
-        mPlayer_Rigidbody = Player.GetComponent<Rigidbody2D>();
+        mPlayer_Rigidbody = PlayerController.Instance.mPlayer_Rigidbody;
     }
 
     // Update is called once per frame
@@ -25,12 +25,14 @@ public class TouchUDLR : MonoBehaviour
         {
             switch (UDLR)
             {
+                /*
                 case 0:
                     {
                         //mPlayer_Rigidbody.AddForce(new Vector2(0, 100f));
                         //Player.position += new Vector3(0, speed*Time.deltaTime);
                         break;
                     }
+                    */
                 case 1:
                     {
                         Player.position += new Vector3(0, -speed * Time.deltaTime);
