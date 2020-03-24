@@ -12,6 +12,11 @@ public class SceneController : MonoBehaviour
         SceneController.Instance = this;
     }
 
+    public void RestartScene()
+    {
+        SceneManager.LoadScene("LoadScene2");
+    }
+
     public void ChangeScene(int index)
     {
         SceneManager.LoadScene("Stage" + index);

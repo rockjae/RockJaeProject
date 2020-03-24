@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class TouchUDLR : MonoBehaviour
 {
+    public static TouchUDLR Instance;
+
     private Transform Player;
     private Rigidbody2D mPlayer_Rigidbody;
 
-    private bool IsTouch = false;
-    private int UDLR = -1;
+    //private bool IsTouch = false;
+    private bool[] IsTouchArray = new bool[5];
 
     private float speed = 1f;
+    private int isJump = 0;
+
+    private void Awake()
+    {
+        TouchUDLR.Instance = this;
+    }
 
     private void Start()
     {
@@ -21,88 +29,90 @@ public class TouchUDLR : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsTouch)
+        if (IsTouchArray[2])
         {
-            switch (UDLR)
-            {
-                /*
-                case 0:
-                    {
-                        //mPlayer_Rigidbody.AddForce(new Vector2(0, 100f));
-                        //Player.position += new Vector3(0, speed*Time.deltaTime);
-                        break;
-                    }
-                    */
-                case 1:
-                    {
-                        Player.position += new Vector3(0, -speed * Time.deltaTime);
-                        break;
-                    }
-                case 2:
-                    {
-                        Player.eulerAngles = new Vector3(0, 180);
-                        Player.position += new Vector3(-speed * Time.deltaTime, 0);
-                        break;
-                    }
-                case 3:
-                    {
-                        Player.eulerAngles = new Vector3(0, 0);
-                        Player.position += new Vector3(speed * Time.deltaTime, 0);
-                        break;
-                    }
-                case 4:
-                    {
-                        Debug.Log("gg");
-                        break;
-                    }
-            }
+            Player.position += new Vector3(0, -speed * Time.deltaTime);
         }
+
+        if (IsTouchArray[3])
+        {
+            Player.eulerAngles = new Vector3(0, 180);
+            //Player.position += new Vector3(-speed * Time.deltaTime, 0);
+            mPlayer_Rigidbody.AddForce(new Vector2(-100 * Time.deltaTime, 0));
+        }
+
+        if (IsTouchArray[4])
+        {
+            Player.eulerAngles = new Vector3(0, 0);
+            //Player.position += new Vector3(speed * Time.deltaTime, 0);
+            mPlayer_Rigidbody.AddForce(new Vector2(100 * Time.deltaTime, 0));
+        }
+    }
+
+    public void setJumpMode(int result)
+    {
+        isJump = result;
     }
 
     public void UDLR_Event(int UDLR)
     {
+        if (UDLR>0)
+        {
+            if (UDLR == 1)
+            {
+                if(isJump == 0)
+                {
+                    mPlayer_Rigidbody.AddForce(new Vector2(0, 200f));
+                    isJump = 1;
+                }
+            }
+            PlayerController.Instance.setPlayerAnimation("jump");
+            IsTouchArray[UDLR] = true;
+        }
+        else
+        {
+            IsTouchArray[UDLR*(-1)] = false;
+        }
+        /*
         switch (UDLR)
         {
-            case -1:
+            case 0: //상
                 {
-                    PlayerController.Instance.setPlayerAnimation("idle");
-                    IsTouch = false;
+                    if (result)
+                    {
+                        PlayerController.Instance.setPlayerAnimation("jump");
+                        mPlayer_Rigidbody.AddForce(new Vector2(0, 100f));
+                        IsTouchArray[0] = true;
+                    }
+                    else
+                    {
+                        IsTouchArray[0] = false;
+                    }
                     break;
                 }
-            case 0:
-                {
-                    PlayerController.Instance.setPlayerAnimation("jump");
-                    this.UDLR = UDLR;
-                    mPlayer_Rigidbody.AddForce(new Vector2(0, 100f));
-                    IsTouch = false;
-                    break;
-                }
-            case 1:
-                {
-                    PlayerController.Instance.setPlayerAnimation("jump");
-                    this.UDLR = UDLR;
-                    IsTouch = true;
-                    break;
-                }
-            case 2:
+            case 1: //하
                 {
                     PlayerController.Instance.setPlayerAnimation("jump");
-                    this.UDLR = UDLR;
-                    IsTouch = true;
+                    IsTouchArray[1] = true;
                     break;
                 }
-            case 3:
+            case 2: //좌
                 {
                     PlayerController.Instance.setPlayerAnimation("jump");
-                    this.UDLR = UDLR;
-                    IsTouch = true;
+                    IsTouchArray[2] = true;
                     break;
                 }
-            case 4: // click
+            case 3: //우
                 {
-                    Debug.Log("dd");
+                    PlayerController.Instance.setPlayerAnimation("jump");
+                    IsTouchArray[3] = true;
                     break;
                 }
+        }
+        */
+        if (!IsTouchArray[1] && !IsTouchArray[2] && !IsTouchArray[3] && !IsTouchArray[4])
+        {
+            PlayerController.Instance.setPlayerAnimation("idle");
         }
     }
 }

@@ -31,7 +31,7 @@ public class StartBtn : MonoBehaviour
             {
                 startBtnCount++;
                 IsCollision = false;
-                if (startBtnCount > 2)
+                if (startBtnCount > 1)
                 {
                     LoadScene.Instance.NextScene();
                 }
