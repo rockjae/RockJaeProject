@@ -7,5 +7,12 @@ public class DontDestory : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        ClearObject.instance.destoryOBJ += clearAll;
+    }
+
+    public void clearAll()
+    {
+        Debug.Log("destory : " + this.gameObject.name);
+        Destroy(this.gameObject);
     }
 }

@@ -14,7 +14,7 @@ public class SceneController : MonoBehaviour
 
     public void RestartScene()
     {
-        SceneManager.LoadScene("LoadScene2");
+        SceneManager.LoadScene("LoadScene");
     }
 
     public void ChangeScene(int index)

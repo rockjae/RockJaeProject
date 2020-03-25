@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameOver : MonoBehaviour
 {
     bool isGameOver = false;
-
+       
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject == PlayerController.Instance.Player)
@@ -16,8 +16,6 @@ public class GameOver : MonoBehaviour
             GameObject gameObject = Resources.Load("GameOver") as GameObject;
             gameObject = Instantiate(gameObject);
 
-            Destroy(PlayerController.Instance.Player);
-            Destroy(BackGroundOBJ.Instance.gameObject);
             StartCoroutine(waitRestart());
         }
     }
@@ -38,6 +36,8 @@ public class GameOver : MonoBehaviour
                 isGameOver = false;
                 BGMManager.Instance.setStartBGM();
                 SceneController.Instance.RestartScene();
+
+                ClearObject.instance.destoryOBJ();  //제일 마지막
             }
         }
     }
