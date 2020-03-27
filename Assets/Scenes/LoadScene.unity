@@ -142,8 +142,9 @@ Transform:
   - {fileID: 2093626831}
   - {fileID: 226232768}
   - {fileID: 413814196}
+  - {fileID: 1582275950}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &201834162
 GameObject:
@@ -1515,7 +1516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955444105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.011, y: -1.866, z: 0}
+  m_LocalPosition: {x: 0.011, y: -1.866, z: -0.1}
   m_LocalScale: {x: 0.77080303, y: 0.82890284, z: 1}
   m_Children: []
   m_Father: {fileID: 1582275950}
@@ -1940,7 +1941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1109782065
 GameObject:
@@ -2640,7 +2641,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1582275950}
-  - component: {fileID: 1582275951}
   m_Layer: 0
   m_Name: BackGround
   m_TagString: Untagged
@@ -2655,27 +2655,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582275949}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.7237747, y: -0.3255338, z: 0.0036133663}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 322592222}
   - {fileID: 955444106}
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 192448562}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1582275951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582275949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d03521ceb1176244a396d623074fa10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1599902571
 GameObject:
   m_ObjectHideFlags: 0
@@ -3023,7 +3011,6 @@ GameObject:
   - component: {fileID: 1724107853}
   - component: {fileID: 1724107852}
   - component: {fileID: 1724107851}
-  - component: {fileID: 1724107855}
   m_Layer: 5
   m_Name: Canvas_Overlay
   m_TagString: Untagged
@@ -3111,18 +3098,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1724107855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724107850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d03521ceb1176244a396d623074fa10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1736033163
 GameObject:
   m_ObjectHideFlags: 0

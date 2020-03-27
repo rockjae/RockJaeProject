@@ -8,7 +8,6 @@ public class TileCollision : MonoBehaviour
     {
         if (collision.gameObject == PlayerController.Instance.Player)
         {
-            Debug.Log("Player Collision tile");
             TouchUDLR.Instance.setJumpMode(0);
         }
     }

@@ -47,6 +47,40 @@ public class TouchUDLR : MonoBehaviour
             //Player.position += new Vector3(speed * Time.deltaTime, 0);
             mPlayer_Rigidbody.AddForce(new Vector2(100 * Time.deltaTime, 0));
         }
+#if UNITY_EDITOR
+        edtior_test();
+#endif
+    }
+    
+    private void edtior_test()
+    {
+        if(Input.GetKey(KeyCode.UpArrow))
+        {
+            if (isJump == 0)
+            {
+                mPlayer_Rigidbody.AddForce(new Vector2(0, 200f));
+                isJump = 1;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            Player.position += new Vector3(0, -speed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            Player.eulerAngles = new Vector3(0, 180);
+            //Player.position += new Vector3(-speed * Time.deltaTime, 0);
+            mPlayer_Rigidbody.AddForce(new Vector2(-100 * Time.deltaTime, 0));
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            Player.eulerAngles = new Vector3(0, 0);
+            //Player.position += new Vector3(speed * Time.deltaTime, 0);
+            mPlayer_Rigidbody.AddForce(new Vector2(100 * Time.deltaTime, 0));
+        }
     }
 
     public void setJumpMode(int result)

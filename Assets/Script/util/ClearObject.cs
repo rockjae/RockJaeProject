@@ -7,7 +7,8 @@ public class ClearObject : MonoBehaviour
     public static ClearObject instance;
 
     public delegate void DestoryOBJ();
-    public DestoryOBJ destoryOBJ;
+    public DestoryOBJ GameOverMsg;
+    public DestoryOBJ ClearOBJ;
 
     private void Awake()
     {

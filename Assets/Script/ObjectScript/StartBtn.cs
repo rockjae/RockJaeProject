@@ -18,7 +18,6 @@ public class StartBtn : MonoBehaviour
     {
         if (collision.gameObject == Player)
         {
-            Debug.Log("Player Collision");
             IsCollision = true;
         }
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage1 : MonoBehaviour
+public class Stage2 : MonoBehaviour
 {
     private Transform Player;
 
