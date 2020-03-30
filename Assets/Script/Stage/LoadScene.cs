@@ -6,6 +6,8 @@ public class LoadScene : MonoBehaviour
 {
     public static LoadScene Instance;
     private Transform Player;
+    
+    public int Stage = 0;
 
     private void Awake()
     {
@@ -20,6 +22,6 @@ public class LoadScene : MonoBehaviour
 
     public void NextScene()
     {
-        SceneController.Instance.ChangeScene(1);
+        SceneController.Instance.ChangeScene(Stage);
     }
 }

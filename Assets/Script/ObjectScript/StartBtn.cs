@@ -32,10 +32,18 @@ public class StartBtn : MonoBehaviour
                 IsCollision = false;
                 if (startBtnCount > 1)
                 {
-                    LoadScene.Instance.NextScene();
+                    //LoadScene.Instance.NextScene();
+                    StartCoroutine(waitNextScene());
                 }
             }
         }
+    }
+
+    private IEnumerator waitNextScene()
+    {
+        this.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(0.5f);
+        LoadScene.Instance.NextScene();
     }
 
     private void OnCollisionExit2D(Collision2D collision)

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Monster1 : MonoBehaviour
 {
     private bool isGameOver = false;
+    private bool isCollision = false;
 
     private Coroutine Cor_disappear = null;
 
@@ -35,12 +36,17 @@ public class Monster1 : MonoBehaviour
     {
         if (collision.gameObject == PlayerController.Instance.gameObject)
         {
-            Cor_disappear = StartCoroutine(disappear());
+            if (!isCollision)
+            {
+                Cor_disappear = StartCoroutine(disappear());
+                isCollision = true;
+            }
         }
     }
 
     private IEnumerator disappear()
     {
+        this.GetComponent<AudioSource>().Play();
         float time = 0;
         while (true)
         {

@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
+    private AudioSource audioSource;
+    public AudioClip audioClip_Jump;
 
     [HideInInspector]
     public GameObject Player;
@@ -21,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
         mPlayer_Animator = this.GetComponent<Animator>();
         mPlayer_Rigidbody = this.GetComponent<Rigidbody2D>();
+
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     public void setPlayerAnimation(string mode)
@@ -38,5 +42,11 @@ public class PlayerController : MonoBehaviour
                     break;
                 }
         }
-    }    
+    }   
+    
+    public void JumpBGMPlay()
+    {
+        audioSource.clip = audioClip_Jump;
+        audioSource.Play();
+    }
 }

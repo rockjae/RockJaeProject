@@ -10,6 +10,7 @@ public class TileFishing : MonoBehaviour
         {
             Debug.Log("Player Collision TileFishing");
             StartCoroutine(tileDown());
+            this.GetComponent<AudioSource>().Play();
         }
     }
 

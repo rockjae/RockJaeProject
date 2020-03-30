@@ -60,6 +60,7 @@ public class TouchUDLR : MonoBehaviour
             {
                 mPlayer_Rigidbody.AddForce(new Vector2(0, 200f));
                 isJump = 1;
+                PlayerController.Instance.JumpBGMPlay();
             }
         }
 
@@ -98,6 +99,7 @@ public class TouchUDLR : MonoBehaviour
                 {
                     mPlayer_Rigidbody.AddForce(new Vector2(0, 200f));
                     isJump = 1;
+                    PlayerController.Instance.JumpBGMPlay();
                 }
             }
             PlayerController.Instance.setPlayerAnimation("jump");
@@ -107,43 +109,7 @@ public class TouchUDLR : MonoBehaviour
         {
             IsTouchArray[UDLR*(-1)] = false;
         }
-        /*
-        switch (UDLR)
-        {
-            case 0: //상
-                {
-                    if (result)
-                    {
-                        PlayerController.Instance.setPlayerAnimation("jump");
-                        mPlayer_Rigidbody.AddForce(new Vector2(0, 100f));
-                        IsTouchArray[0] = true;
-                    }
-                    else
-                    {
-                        IsTouchArray[0] = false;
-                    }
-                    break;
-                }
-            case 1: //하
-                {
-                    PlayerController.Instance.setPlayerAnimation("jump");
-                    IsTouchArray[1] = true;
-                    break;
-                }
-            case 2: //좌
-                {
-                    PlayerController.Instance.setPlayerAnimation("jump");
-                    IsTouchArray[2] = true;
-                    break;
-                }
-            case 3: //우
-                {
-                    PlayerController.Instance.setPlayerAnimation("jump");
-                    IsTouchArray[3] = true;
-                    break;
-                }
-        }
-        */
+
         if (!IsTouchArray[1] && !IsTouchArray[2] && !IsTouchArray[3] && !IsTouchArray[4])
         {
             PlayerController.Instance.setPlayerAnimation("idle");
