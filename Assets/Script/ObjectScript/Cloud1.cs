@@ -29,6 +29,7 @@ public class Cloud1 : MonoBehaviour
             time += Time.deltaTime;
             this.transform.eulerAngles += new Vector3(0, 0, Time.deltaTime * 5000f);
             this.transform.position += new Vector3(0, Time.deltaTime*3f);
+            player.transform.position += new Vector3(0, Time.deltaTime * 3f);
             player.eulerAngles += new Vector3(0, 0,Time.deltaTime*5000f);
 
             if (time > 3) { break; }
