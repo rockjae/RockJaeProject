@@ -13,7 +13,7 @@ public class TouchUDLR : MonoBehaviour
     private bool[] IsTouchArray = new bool[5];
 
     private float speed = 1f;
-    private int isJump = 0;
+    private int isJump = 1;
 
     private void Awake()
     {
