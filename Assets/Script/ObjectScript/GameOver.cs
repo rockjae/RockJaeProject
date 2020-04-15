@@ -4,22 +4,34 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    bool isPlayerDown = false;
-    bool isGameOver = false;
-       
+    public static GameOver Instance;
+
+    public bool isPlayerDown = false;
+    public bool isGameOver = false;
+
+    private void Awake()
+    {
+        GameOver.Instance = this;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!isPlayerDown && collision.gameObject == PlayerController.Instance.Player)
         {
-            BGMManager.Instance.setGameOverBGM();
-            TouchUDLR.Instance.gameObject.SetActive(false);
-            Debug.Log("Player GameOver!!");
-            GameObject gameObject = Resources.Load("GameOver") as GameObject;
-            gameObject = Instantiate(gameObject);
-
-            isPlayerDown = true;
-            StartCoroutine(waitRestart());
+            startGameOver();
         }
+    }
+
+    public void startGameOver()
+    {
+        BGMManager.Instance.setGameOverBGM();
+        TouchUDLR.Instance.gameObject.SetActive(false);
+        Debug.Log("Player GameOver!!");
+        GameObject gameObject = Resources.Load("GameOver") as GameObject;
+        gameObject = Instantiate(gameObject);
+
+        isPlayerDown = true;
+        StartCoroutine(waitRestart());
     }
 
     IEnumerator waitRestart()
