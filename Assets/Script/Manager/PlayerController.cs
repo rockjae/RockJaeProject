@@ -49,4 +49,12 @@ public class PlayerController : MonoBehaviour
         audioSource.clip = audioClip_Jump;
         audioSource.Play();
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "tile")
+        {
+            TouchUDLR.Instance.setJumpMode(0);
+        }
+    }
 }

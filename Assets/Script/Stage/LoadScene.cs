@@ -7,6 +7,7 @@ public class LoadScene : MonoBehaviour
     public static LoadScene Instance;
     private Transform Player;
     
+    [HideInInspector]
     public int Stage = 0;
 
     private void Awake()

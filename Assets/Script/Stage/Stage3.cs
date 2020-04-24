@@ -7,16 +7,18 @@ public class Stage3 : MonoBehaviour
     public GameObject thunder;
     public GameObject Banana;
 
-    private const float height = 4f;
+    private const float height = 6f;
 
     // Start is called before the first frame update
     void Start()
     {
+        PlayerController.Instance.Player.transform.position = new Vector3(-2, 4);
         StartCoroutine(InitThunder());
     }
 
     IEnumerator InitThunder()
     {
+        yield return new WaitForSeconds(3f);
         while (true)
         {
             if (Random.Range(0, 3) == 0)

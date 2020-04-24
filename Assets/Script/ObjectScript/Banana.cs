@@ -12,8 +12,10 @@ public class Banana : MonoBehaviour
         }
         else if (collision.gameObject == PlayerController.Instance.Player)
         {
-            //GameOver.Instance.startGameOver();
-            SceneController.Instance.ChangeScene(4);
+            if (!GameOver.Instance.isPlayerDown)
+            {
+                SceneController.Instance.ChangeScene(4);
+            }
         }
     }
 }

@@ -760,7 +760,6 @@ GameObject:
   m_Component:
   - component: {fileID: 517850871}
   - component: {fileID: 517850869}
-  - component: {fileID: 517850868}
   - component: {fileID: 517850867}
   - component: {fileID: 517850872}
   m_Layer: 0
@@ -796,18 +795,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
---- !u!114 &517850868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517850866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2716791b2cca648bbd7195e539a027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &517850869
 Rigidbody2D:
   serializedVersion: 4
@@ -838,7 +825,7 @@ Transform:
   m_GameObject: {fileID: 517850866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.09, y: -7.39, z: 0}
-  m_LocalScale: {x: 2, y: 0.25, z: 1}
+  m_LocalScale: {x: 10, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -855,6 +842,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4206c66a73328994897390f76c09fc05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerDown: 0
+  isGameOver: 0
 --- !u!1 &651687219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,8 +1924,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863378946}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.013513118, y: 3.227, z: 90}
-  m_LocalScale: {x: 0.2951436, y: 0.3622706, z: 1}
+  m_LocalPosition: {x: -0.013513118, y: 3.216, z: 90}
+  m_LocalScale: {x: 0.2951436, y: 0.36408195, z: 1}
   m_Children: []
   m_Father: {fileID: 295344230}
   m_RootOrder: 0
@@ -2867,7 +2856,6 @@ GameObject:
   - component: {fileID: 1829773479}
   - component: {fileID: 1829773483}
   - component: {fileID: 1829773482}
-  - component: {fileID: 1829773481}
   - component: {fileID: 1829773480}
   m_Layer: 0
   m_Name: Tile (3)
@@ -2916,18 +2904,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
---- !u!114 &1829773481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829773478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2716791b2cca648bbd7195e539a027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1829773482
 Rigidbody2D:
   serializedVersion: 4

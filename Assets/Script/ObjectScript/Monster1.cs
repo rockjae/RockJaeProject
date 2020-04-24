@@ -7,7 +7,12 @@ public class Monster1 : MonoBehaviour
     private bool isGameOver = false;
     private bool isCollision = false;
 
-    private Coroutine Cor_disappear = null;
+    private IEnumerator Cor_disappear = null;
+
+    private void Start()
+    {
+        Cor_disappear = disappear();
+    }
 
     private void OnEnable()
     {
@@ -38,7 +43,7 @@ public class Monster1 : MonoBehaviour
         {
             if (!isCollision)
             {
-                Cor_disappear = StartCoroutine(disappear());
+                StartCoroutine(Cor_disappear);
                 isCollision = true;
             }
         }

@@ -18,6 +18,20 @@ public class StartBtn : MonoBehaviour
     {
         if (collision.gameObject == Player)
         {
+            Debug.Log("OnCollisionEnter2D");
+            startBtnCount++;
+            if(startBtnCount > 1)
+            {
+                Debug.Log("startBtnCount > 1");
+                StartCoroutine(waitNextScene());
+            }
+        }
+    }
+    /*
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject == Player)
+        {
             IsCollision = true;
         }
     }
@@ -30,7 +44,7 @@ public class StartBtn : MonoBehaviour
             {
                 startBtnCount++;
                 IsCollision = false;
-                if (startBtnCount > 1)
+                if (startBtnCount > 0)
                 {
                     //LoadScene.Instance.NextScene();
                     StartCoroutine(waitNextScene());
@@ -39,18 +53,18 @@ public class StartBtn : MonoBehaviour
         }
     }
 
-    private IEnumerator waitNextScene()
-    {
-        this.GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(0.5f);
-        LoadScene.Instance.NextScene();
-    }
-
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (IsCollision)
         {
             IsCollision = false;
         }
+    }
+    */
+    private IEnumerator waitNextScene()
+    {
+        this.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(0.5f);
+        LoadScene.Instance.NextScene();
     }
 }

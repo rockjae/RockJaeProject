@@ -771,7 +771,6 @@ GameObject:
   - component: {fileID: 546160935}
   - component: {fileID: 546160939}
   - component: {fileID: 546160938}
-  - component: {fileID: 546160937}
   - component: {fileID: 546160936}
   m_Layer: 0
   m_Name: Tile (1)
@@ -820,18 +819,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
---- !u!114 &546160937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546160934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2716791b2cca648bbd7195e539a027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &546160938
 Rigidbody2D:
   serializedVersion: 4
@@ -1155,17 +1142,17 @@ PrefabInstance:
     - target: {fileID: 6107755969631244577, guid: 6533c0b402fcd364b8bd8e2600d8adf9,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6107755969631244577, guid: 6533c0b402fcd364b8bd8e2600d8adf9,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6107755969631244577, guid: 6533c0b402fcd364b8bd8e2600d8adf9,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6107755969631244590, guid: 6533c0b402fcd364b8bd8e2600d8adf9,
         type: 3}
@@ -1678,7 +1665,6 @@ GameObject:
   - component: {fileID: 991189166}
   - component: {fileID: 991189170}
   - component: {fileID: 991189169}
-  - component: {fileID: 991189168}
   - component: {fileID: 991189167}
   m_Layer: 0
   m_Name: Tile (5)
@@ -1727,18 +1713,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
---- !u!114 &991189168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991189165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2716791b2cca648bbd7195e539a027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &991189169
 Rigidbody2D:
   serializedVersion: 4
@@ -2052,7 +2026,6 @@ GameObject:
   - component: {fileID: 1109782066}
   - component: {fileID: 1109782070}
   - component: {fileID: 1109782069}
-  - component: {fileID: 1109782068}
   - component: {fileID: 1109782067}
   m_Layer: 0
   m_Name: Tile
@@ -2101,18 +2074,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
---- !u!114 &1109782068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109782065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2716791b2cca648bbd7195e539a027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1109782069
 Rigidbody2D:
   serializedVersion: 4
@@ -2459,7 +2420,6 @@ GameObject:
   - component: {fileID: 1522730174}
   - component: {fileID: 1522730178}
   - component: {fileID: 1522730177}
-  - component: {fileID: 1522730176}
   - component: {fileID: 1522730175}
   m_Layer: 0
   m_Name: Tile (4)
@@ -2508,18 +2468,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
---- !u!114 &1522730176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522730173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2716791b2cca648bbd7195e539a027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1522730177
 Rigidbody2D:
   serializedVersion: 4
@@ -2600,7 +2548,6 @@ GameObject:
   - component: {fileID: 1563330223}
   - component: {fileID: 1563330227}
   - component: {fileID: 1563330226}
-  - component: {fileID: 1563330225}
   - component: {fileID: 1563330224}
   m_Layer: 0
   m_Name: Tile (3)
@@ -2649,18 +2596,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
---- !u!114 &1563330225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1563330222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2716791b2cca648bbd7195e539a027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1563330226
 Rigidbody2D:
   serializedVersion: 4
@@ -3927,7 +3862,6 @@ GameObject:
   - component: {fileID: 2127769260}
   - component: {fileID: 2127769264}
   - component: {fileID: 2127769263}
-  - component: {fileID: 2127769262}
   - component: {fileID: 2127769261}
   m_Layer: 0
   m_Name: Tile (2)
@@ -3976,18 +3910,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
---- !u!114 &2127769262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127769259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2716791b2cca648bbd7195e539a027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &2127769263
 Rigidbody2D:
   serializedVersion: 4
