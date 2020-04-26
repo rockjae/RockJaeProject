@@ -11,6 +11,7 @@ public class TileFisingDown : MonoBehaviour
         {
             if (!GameOver.Instance.isPlayerDown)
             {
+                this.GetComponent<AudioSource>().Play();
                 this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 Stage4.Instance.StageClear.SetActive(true);
             }

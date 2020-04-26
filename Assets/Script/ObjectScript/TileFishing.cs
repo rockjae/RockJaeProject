@@ -9,11 +9,12 @@ public class TileFishing : MonoBehaviour
         if (collision.gameObject == PlayerController.Instance.Player)
         {
             Debug.Log("Player Collision TileFishing");
-            StartCoroutine(tileDown());
+            //StartCoroutine(tileDown());
+            this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             this.GetComponent<AudioSource>().Play();
         }
     }
-
+    /*
     private IEnumerator tileDown()
     {
         float time = 0;
@@ -26,4 +27,5 @@ public class TileFishing : MonoBehaviour
             yield return null;
         }
     }
+    */
 }

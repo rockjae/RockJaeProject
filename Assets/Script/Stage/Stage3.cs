@@ -7,7 +7,7 @@ public class Stage3 : MonoBehaviour
     public GameObject thunder;
     public GameObject Banana;
 
-    private const float height = 6f;
+    private const float height = 4.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,19 +23,19 @@ public class Stage3 : MonoBehaviour
         {
             if (Random.Range(0, 3) == 0)
             {
-                makeItem(true);
+                StartCoroutine(makeItem(true));
             }
             else
             {
-                makeItem(false);
+                StartCoroutine(makeItem(false));
             }
             yield return new WaitForSeconds(1f);
         }
     }
 
-    private void makeItem(bool IsBanana)
+    IEnumerator makeItem(bool IsBanana)
     {
-        int ran = Random.Range(0, 6);
+        int ran = Random.Range(0, 5);
         Vector3 vec = new Vector3();
         switch (ran)
         {
@@ -65,17 +65,22 @@ public class Stage3 : MonoBehaviour
                     break;
                 }
         }
+
+        GameObject tmp;
         if (IsBanana)
         {
-            GameObject tmp = Instantiate(Banana);
-            tmp.transform.position = vec;
-            tmp.SetActive(true);
+            tmp = Instantiate(Banana);
         }
         else
         {
-            GameObject tmp = Instantiate(thunder);
-            tmp.transform.position = vec;
-            tmp.SetActive(true);
+            tmp = Instantiate(thunder);
         }
+
+        tmp.transform.position = vec;
+        tmp.SetActive(true);
+        tmp.GetComponent<Rigidbody2D>().gravityScale = 0;
+
+        yield return new WaitForSeconds(0.3f);
+        tmp.GetComponent<Rigidbody2D>().gravityScale = 0.5f;
     }
 }

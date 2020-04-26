@@ -115,4 +115,9 @@ public class TouchUDLR : MonoBehaviour
             PlayerController.Instance.setPlayerAnimation("idle");
         }
     }
+
+    public void playAudio()
+    {
+        this.GetComponent<AudioSource>().Play();
+    }
 }

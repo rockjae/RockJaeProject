@@ -10,5 +10,9 @@ public class StageClear : MonoBehaviour
         {
             SceneController.Instance.ChangeScene(5);
         }
+        else if (collision.gameObject.tag == "tile")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
