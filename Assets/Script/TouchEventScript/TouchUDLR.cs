@@ -97,7 +97,7 @@ public class TouchUDLR : MonoBehaviour
             {
                 if(isJump == 0)
                 {
-                    mPlayer_Rigidbody.AddForce(new Vector2(0, 200f));
+                    mPlayer_Rigidbody.AddForce(new Vector2(0, 250f));
                     isJump = 1;
                     PlayerController.Instance.JumpBGMPlay();
                 }

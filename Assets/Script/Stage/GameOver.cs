@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameOver : MonoBehaviour
 {
     public static GameOver Instance;
+    public GameObject MainCamera;
 
     public bool isPlayerDown = false;
     public bool isGameOver = false;
@@ -29,6 +30,8 @@ public class GameOver : MonoBehaviour
         Debug.Log("Player GameOver!!");
         GameObject gameObject = Resources.Load("GameOver") as GameObject;
         gameObject = Instantiate(gameObject);
+        gameObject.transform.SetParent(MainCamera.transform);
+        gameObject.transform.localPosition = new Vector3(0, gameObject.transform.localPosition.y, gameObject.transform.localPosition.z);
 
         isPlayerDown = true;
         StartCoroutine(waitRestart());
@@ -51,7 +54,7 @@ public class GameOver : MonoBehaviour
                 isGameOver = false;
                 BGMManager.Instance.setStartBGM();
                 ClearObject.instance.ClearOBJ();
-                SceneController.Instance.RestartScene();
+                SceneController.Instance.RestartNewGame();
             }
         }
     }
