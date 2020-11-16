@@ -953,6 +953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4206c66a73328994897390f76c09fc05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainCamera: {fileID: 0}
   isPlayerDown: 0
   isGameOver: 0
 --- !u!1 &620962272
