@@ -12,6 +12,7 @@ public class TouchUDLR : MonoBehaviour
     //private bool IsTouch = false;
     private bool[] IsTouchArray = new bool[5];
 
+    private float jumpScale = 200f;
     private float speed = 1f;
     private int isJump = 1;
 
@@ -54,14 +55,22 @@ public class TouchUDLR : MonoBehaviour
     
     private void edtior_test()
     {
-        if(Input.GetKey(KeyCode.UpArrow))
+        if(Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (isJump == 0)
             {
-                mPlayer_Rigidbody.AddForce(new Vector2(0, 200f));
+                mPlayer_Rigidbody.AddForce(new Vector2(0, jumpScale));
                 isJump = 1;
                 PlayerController.Instance.JumpBGMPlay();
             }
+            /*
+            else if(isJump == 1)
+            {
+                mPlayer_Rigidbody.AddForce(new Vector2(0, jumpScale*2));
+                isJump = 2;
+                PlayerController.Instance.JumpBGMPlay();
+            }
+            */
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
@@ -95,12 +104,20 @@ public class TouchUDLR : MonoBehaviour
         {
             if (UDLR == 1)
             {
-                if(isJump == 0)
+                if (isJump == 0)
                 {
-                    mPlayer_Rigidbody.AddForce(new Vector2(0, 250f));
+                    mPlayer_Rigidbody.AddForce(new Vector2(0, jumpScale));
                     isJump = 1;
                     PlayerController.Instance.JumpBGMPlay();
                 }
+                /*
+                else if (isJump == 1)
+                {
+                    mPlayer_Rigidbody.AddForce(new Vector2(0, jumpScale*2));
+                    isJump = 2;
+                    PlayerController.Instance.JumpBGMPlay();
+                }
+                */
             }
             PlayerController.Instance.setPlayerAnimation("jump");
             IsTouchArray[UDLR] = true;
