@@ -12,7 +12,7 @@ public class TouchUDLR : MonoBehaviour
     //private bool IsTouch = false;
     private bool[] IsTouchArray = new bool[5];
 
-    private float jumpScale = 200f;
+    private float jumpScale = 250f;
     private float speed = 1f;
     private int isJump = 1;
 
