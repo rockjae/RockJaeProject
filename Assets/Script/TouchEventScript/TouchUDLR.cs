@@ -12,11 +12,9 @@ public class TouchUDLR : MonoBehaviour
     //private bool IsTouch = false;
     private bool[] IsTouchArray = new bool[5];
 
-    private float speed = 2.3f;
+    private float speed = 6f;
     private int isJump = 1;
     private float forceScale = 250f;
-    private float forceTimer = 0;
-    private float forceTimerEditor = 0;
 
     private void Awake()
     {
@@ -38,39 +36,25 @@ public class TouchUDLR : MonoBehaviour
             Player.position += new Vector3(0, -speed * Time.deltaTime);
         }
         */
+        Debug.Log(mPlayer_Rigidbody.velocity.x);
         if (IsTouchArray[3])
         {
             Player.eulerAngles = new Vector3(0, 180);
-            forceTimer += Time.deltaTime;
-            if (forceTimer < 1.5f)
+
+            if (mPlayer_Rigidbody.velocity.x > -2.5f)
             {
-                mPlayer_Rigidbody.AddForce(new Vector2(-(speed*1.2f) * forceTimer, 0));
-            }
-            else
-            {
-                //mPlayer_Rigidbody.AddForce(new Vector2(-100 * Time.deltaTime, 0));
-                Player.position += new Vector3(-speed * Time.deltaTime, 0);
+                mPlayer_Rigidbody.AddForce(new Vector2(-speed, 0));
             }
         }
 
         if (IsTouchArray[4])
         {
             Player.eulerAngles = new Vector3(0, 0);
-            forceTimer += Time.deltaTime;
-            if (forceTimer < 1.5f)
-            {
-                mPlayer_Rigidbody.AddForce(new Vector2((speed * 1.2f) * forceTimer, 0));
-            }
-            else
-            {
-                //mPlayer_Rigidbody.AddForce(new Vector2(100 * Time.deltaTime, 0));
-                Player.position += new Vector3(speed * Time.deltaTime, 0);
-            }
-        }
 
-        if(!IsTouchArray[3] && !IsTouchArray[4])
-        {
-            forceTimer = 0;
+            if(mPlayer_Rigidbody.velocity.x < 2.5f)
+            {
+                mPlayer_Rigidbody.AddForce(new Vector2(speed, 0));
+            }
         }
 
 #if UNITY_EDITOR

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     private Transform Player;
-    private float PlayerJumpH = 2f;
+    private float PlayerJumpH = 0;
 
     // Start is called before the first frame update
     void Start()
