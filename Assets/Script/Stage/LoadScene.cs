@@ -18,7 +18,7 @@ public class LoadScene : MonoBehaviour
     private void Start()
     {
         Player = PlayerController.Instance.Player.transform;
-        Player.transform.position = new Vector3(-2, 4);
+        Player.transform.position = new Vector3(-2, 2);
     }
 
     public void NextScene()

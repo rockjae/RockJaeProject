@@ -12,9 +12,12 @@ public class TouchUDLR : MonoBehaviour
     //private bool IsTouch = false;
     private bool[] IsTouchArray = new bool[5];
 
-    private float speed = 6f;
+    private float speed = 1f;
+    private float speedMax = 1f;
     private int isJump = 1;
-    private float forceScale = 250f;
+    private float forceScale = 120f;
+
+    public int StageCount = 0;
 
     private void Awake()
     {
@@ -36,12 +39,11 @@ public class TouchUDLR : MonoBehaviour
             Player.position += new Vector3(0, -speed * Time.deltaTime);
         }
         */
-        Debug.Log(mPlayer_Rigidbody.velocity.x);
         if (IsTouchArray[3])
         {
             Player.eulerAngles = new Vector3(0, 180);
 
-            if (mPlayer_Rigidbody.velocity.x > -2.5f)
+            if (mPlayer_Rigidbody.velocity.x > -speedMax)
             {
                 mPlayer_Rigidbody.AddForce(new Vector2(-speed, 0));
             }
@@ -51,10 +53,15 @@ public class TouchUDLR : MonoBehaviour
         {
             Player.eulerAngles = new Vector3(0, 0);
 
-            if(mPlayer_Rigidbody.velocity.x < 2.5f)
+            if(mPlayer_Rigidbody.velocity.x < speedMax)
             {
                 mPlayer_Rigidbody.AddForce(new Vector2(speed, 0));
             }
+        }
+
+        if (StageCount == 1)
+        {
+            this.transform.eulerAngles += new Vector3(0, 0, 10f * Time.deltaTime);
         }
 
 #if UNITY_EDITOR
